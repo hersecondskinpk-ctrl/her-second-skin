@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Her Second Skin PK - Comfort, Confidence & Elegance</title>
+  <style>
+    :root {
+      --primary: #a33b5c;
+      --primary-dark: #4a1525;
+      --bg-light: #faf3f0;
+      --text-dark: #2c1a21;
+      --whatsapp: #25d366;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    .marquee-bar {
+      background: var(--primary-dark);
+      color: #fff;
+      padding: 8px 0;
+      font-size: 13px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-content {
+      display: inline-block;
+      animation: marquee 22s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    header {
+      background: #fff;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-logo-wrapper {
+      position: relative;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1.5px solid var(--primary);
+      overflow: hidden;
+      cursor: pointer;
+      flex-shrink: 0;
+      background: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .brand-logo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      line-height: 1.15;
+    }
+    .brand-tagline {
+      font-size: 10.5px;
+      color: var(--primary);
+      font-style: italic;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .icon-btn {
+      background: none;
+      border: none;
+      font-size: 23px;
+      cursor: pointer;
+      position: relative;
+      color: var(--text-dark);
+    }
+    .cart-badge {
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 11px;
+      font-weight: bold;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .chat-btn {
+      background: var(--whatsapp);
+      color: #fff;
+      text-decoration: none;
+      padding: 7px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 998;
+      display: none;
+    }
+    .overlay.active {
+      display: block;
+    }
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -280px;
+      width: 270px;
+      height: 100%;
+      background: #fff;
+      z-index: 999;
+      transition: left 0.3s ease;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.15);
+    }
+    .side-menu.active {
+      left: 0;
+    }
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 15px;
+    }
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+    .side-menu a {
+      text-decoration: none;
+      color: var(--text-dark);
+      padding: 12px 0;
+      font-size: 16px;
+      font-weight: 500;
+      border-bottom: 1px solid #f5f5f5;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -380px;
+      width: 360px;
+      height: 100%;
+      background: #fff;
+      z-index: 999;
+      transition: right 0.3s ease;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -2px 0 12px rgba(0,0,0,0.15);
+      overflow-y: auto;
+    }
+    .cart-drawer.active {
+      right: 0;
+    }
+    .cart-items {
+      max-height: 200px;
+      overflow-y: auto;
+      margin: 10px 0;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+    .cart-item {
+      padding: 10px 0;
+      border-bottom: 1px dashed #eee;
+      font-size: 13px;
+    }
+    .cart-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+    .cart-item-info h4 {
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+    .cart-item-options {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .cart-item-options select {
+      padding: 2px 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 11px;
+      background: #faf3f0;
+    }
+    .cart-item-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .qty-btn {
+      background: #eee;
+      border: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .remove-item {
+      background: none;
+      border: none;
+      color: #d9534f;
+      font-size: 11.5px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .checkout-form {
+      background: #faf3f0;
+      padding: 12px;
+      border-radius: 10px;
+      margin: 12px 0;
+      border: 1px solid #ebd0d7;
+    }
+    .checkout-form h4 {
+      font-size: 13.5px;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+    .form-group {
+      margin-bottom: 8px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: var(--text-dark);
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 7px 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 12.5px;
+      background: #fff;
+    }
+    .form-group textarea {
+      resize: vertical;
+      height: 50px;
+    }
+
+    .cart-footer {
+      border-top: 2px solid #eee;
+      padding-top: 12px;
+      margin-top: auto;
+    }
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .checkout-btn {
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .checkout-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .hero {
+      margin: 15px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      height: 360px;
+      background: linear-gradient(rgba(74, 21, 37, 0.45), rgba(74, 21, 37, 0.65)),
+                  url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80') center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+    }
+    .hero h1 {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+    .hero .sub-badge {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: #ffdce5;
+    }
+    .hero p {
+      font-size: 15px;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .hero-btn {
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 26px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 24px;
+      margin: 30px 0 18px;
+      color: var(--primary-dark);
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+      padding: 0 16px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: center;
+      padding-bottom: 16px;
+    }
+    .card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+    .card h3 {
+      font-size: 16px;
+      margin: 10px 10px 4px;
+    }
+    .price {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    
+    .product-options {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 13px;
+    }
+    .product-options select {
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      background: #faf3f0;
+      color: var(--text-dark);
+      font-size: 12.5px;
+    }
+
+    .add-cart-btn {
+      background: var(--primary-dark);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 22px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .add-cart-btn:hover {
+      background: var(--primary);
+    }
+
+    .video-slider {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding: 10px 16px 20px;
+      scroll-snap-type: x mandatory;
+    }
+    .video-card {
+      min-width: 210px;
+      height: 360px;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      scroll-snap-align: start;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: #000;
+    }
+    .video-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .video-caption {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+
+    .calc-box {
+      background: #fff;
+      margin: 20px 16px;
+      padding: 22px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .calc-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 340px;
+      margin: 15px auto;
+    }
+    .calc-input-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f9f9f9;
+      padding: 6px 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .calc-icon {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fceef3;
+      border-radius: 6px;
+      padding: 4px;
+    }
+    .calc-inputs input {
+      border: none;
+      background: transparent;
+      padding: 8px;
+      font-size: 14px;
+      width: 100%;
+    }
+    .calc-inputs input:focus {
+      outline: none;
+    }
+    .calc-result {
+      margin-top: 15px;
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 16px;
+    }
+    .multi-lang-box {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed #eee;
+      font-size: 12.5px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* WhatsApp Style Chat & Playable Voice Note Styles */
+    .chat-widget-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--whatsapp);
+      color: #fff;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      font-size: 26px;
+      cursor: pointer;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+    }
+    .chat-widget-btn:hover {
+      transform: scale(1.08);
+    }
+    .chat-popup {
+      position: fixed;
+      bottom: 85px;
+      right: 20px;
+      width: 320px;
+      height: 440px;
+      background: #efeae2;
+      border-radius: 16px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+      z-index: 1000;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid #ebd0d7;
+    }
+    .chat-popup.active {
+      display: flex;
+    }
+    .chat-header {
+      background: #075e54;
+      color: #fff;
+      padding: 10px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .chat-header-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .chat-header-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #fff;
+    }
+    .chat-header h4 {
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+    .chat-body {
+      flex: 1;
+      padding: 12px;
+      overflow-y: auto;
+      background-image: radial-gradient(#d1d7db 1px, transparent 1px);
+      background-size: 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+    }
+    .chat-msg {
+      padding: 8px 12px;
+      border-radius: 8px;
+      max-width: 85%;
+      line-height: 1.4;
+      box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+    }
+    .chat-msg.bot {
+      background: #fff;
+      color: var(--text-dark);
+      align-self: flex-start;
+      border-top-left-radius: 0;
+    }
+    .chat-msg.user {
+      background: #dcf8c6;
+      color: #111;
+      align-self: flex-end;
+      border-top-right-radius: 0;
+    }
+    .whatsapp-voice-bubble {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #dcf8c6;
+      color: #111;
+      padding: 8px 12px;
+      border-radius: 12px;
+      align-self: flex-end;
+      box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+      font-size: 12.5px;
+      max-width: 85%;
+    }
+    .voice-play-btn {
+      background: var(--whatsapp);
+      color: white;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .voice-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .voice-text {
+      font-size: 11.5px;
+      color: #333;
+    }
+
+    .chat-footer-box {
+      padding: 10px;
+      background: #f0f0f0;
+      border-top: 1px solid #ddd;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .chat-footer-box input {
+      flex: 1;
+      padding: 9px 12px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      font-size: 12.5px;
+      outline: none;
+      background: #fff;
+    }
+    .mic-btn {
+      background: #fff;
+      border: 1px solid #ccc;
+      color: #075e54;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .mic-btn.recording {
+      background: #ff4d4d;
+      color: #fff;
+      border-color: #ff4d4d;
+      animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+    .chat-footer-box button.send-btn {
+      background: #075e54;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    footer {
+      background: var(--primary-dark);
+      color: #eee;
+      padding: 35px 20px 25px;
+      margin-top: 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-bottom: 25px;
+    }
+    .footer-col h4 {
+      color: #ffb6c9;
+      margin-bottom: 12px;
+      font-size: 17px;
+    }
+    .footer-col p, .footer-col li {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: #e5d5da;
+      list-style: none;
+    }
+    .footer-col a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 15px;
+      font-size: 12px;
+      color: #cbb5bc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="marquee-bar">
+    <div class="marquee-content">
+      ✨ Welcome to Her Second Skin PK - Comfort, Confidence & Elegance ✨ &nbsp;&nbsp;|&nbsp;&nbsp; 🛍️ Premium Zipper-Bag Discreet Packaging &nbsp;&nbsp;|&nbsp;&nbsp; 🚚 Fast Delivery Nationwide 🇵🇰 &nbsp;&nbsp;|&nbsp;&nbsp; 🔄 Exchange Only (Item-to-item) &nbsp;&nbsp;|&nbsp;&nbsp; 📞 WhatsApp: 0339-7055500
+    </div>
+  </div>
+
+  <header>
+    <div class="brand-box">
+      <input type="file" id="logo-upload" accept="image/*" style="display:none" onchange="loadCustomLogo(event)" />
+      <div class="brand-logo-wrapper" onclick="document.getElementById('logo-upload').click()" title="Tap to select your Logo from Gallery">
+        <img id="brand-logo-img" src="logo.jpg" alt="Her Second Skin PK Logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'47\' fill=\'%23faf3f0\' stroke=\'%23a33b5c\' stroke-width=\'3\'/><text x=\'50\' y=\'42\' font-family=\'serif\' font-size=\'16\' fill=\'%23a33b5c\' text-anchor=\'middle\'>Her</text><text x=\'50\' y=\'60\' font-family=\'cursive\' font-size=\'18\' fill=\'%234a1525\' text-anchor=\'middle\'>Second</text><text x=\'50\' y=\'77\' font-family=\'serif\' font-size=\'14\' fill=\'%23a33b5c\' text-anchor=\'middle\'>Skin PK</text></svg>'" />
+      </div>
+      <div>
+        <div class="brand-title">Her Second<br>Skin PK</div>
+        <div class="brand-tagline">Comfort, Confidence & Elegance.</div>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button class="icon-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+      <button class="icon-btn" onclick="toggleCart()" aria-label="Cart">
+        🛒 <span class="cart-badge" id="cart-count">0</span>
+      </button>
+      <a href="https://wa.me/923397055500" target="_blank" class="chat-btn">
+        💬 WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <div class="overlay" id="overlay" onclick="closeAllDrawers()"></div>
+
+  <nav class="side-menu" id="side-menu">
+    <div class="menu-header">
+      <strong>Menu</strong>
+      <button class="close-btn" onclick="toggleMenu()">×</button>
+    </div>
+    <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#categories" onclick="toggleMenu()">Shop by Category</a>
+    <a href="#collection" onclick="toggleMenu()">Our Collection</a>
+    <a href="#videos" onclick="toggleMenu()">The Elegance Edit (Reels)</a>
+    <a href="#size-guide" onclick="toggleMenu()">Size Calculator</a>
+    <a href="#footer" onclick="toggleMenu()">Exchange Policy & Contact</a>
+  </nav>
+
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="menu-header">
+      <strong>Your Shopping Cart 🛍️</strong>
+      <button class="close-btn" onclick="toggleCart()">×</button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <p style="color:#777; text-align:center; margin-top:30px;">Your cart drawer is empty.</p>
+    </div>
+
+    <div class="checkout-form">
+      <h4>📦 Delivery Information</h4>
+      <div class="form-group">
+        <label>Full Name:</label>
+        <input type="text" id="cust-name" placeholder="e.g. Ayesha Khan" />
+      </div>
+      <div class="form-group">
+        <label>Phone Number:</label>
+        <input type="tel" id="cust-phone" placeholder="e.g. 03001234567" />
+      </div>
+      <div class="form-group">
+        <label>Complete Address & City:</label>
+        <textarea id="cust-address" placeholder="House #, Street, Area, City"></textarea>
+      </div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total">PKR 0</span>
+      </div>
+      <button class="checkout-btn" id="checkout-btn" onclick="checkoutCart()">Confirm Order</button>
+    </div>
+  </aside>
+
+  <!-- Floating Chat Widget with Logo & Help Assistant Name -->
+  <button class="chat-widget-btn" onclick="toggleChatPopup()" title="Chat with Us">💬</button>
+  <div class="chat-popup" id="chat-popup">
+    <div class="chat-header">
+      <div class="chat-header-title">
+        <img src="logo.jpg" class="chat-header-logo" alt="Logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'47\' fill=\'%23faf3f0\' stroke=\'%2325d366\' stroke-width=\'5\'/><text x=\'50\' y=\'58\' font-family=\'serif\' font-size=\'32\' fill=\'%23075e54\' text-anchor=\'middle\'>H</text></svg>'" />
+        <h4>Help Assistant</h4>
+      </div>
+      <button class="close-btn" style="color:#fff; font-size:20px; background:none; border:none; cursor:pointer;" onclick="toggleChatPopup()">×</button>
+    </div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-msg bot">Hello! Welcome to <strong>Her Second Skin PK</strong>. ✨<br>Aap "Hi" keh sakti hain ya mic button 🎤 daba kar voice note bhej sakti hain!</div>
+    </div>
+    <div class="chat-footer-box">
+      <input type="text" id="chat-input" placeholder="Type a message or tap mic..." onkeypress="handleChatKeyPress(event)" />
+      <button class="mic-btn" id="mic-btn" onclick="toggleVoiceRecording()" title="Record Voice Note">🎤</button>
+      <button class="send-btn" onclick="sendChatMessage()">Send</button>
+    </div>
+  </div>
+
+  <section class="hero" id="home">
+    <div class="sub-badge">Lingerie & Sleepwear</div>
+    <h1>Her Second Skin PK</h1>
+    <p>"Comfort, Confidence & Elegance."</p>
+    <a href="#collection" class="hero-btn">Shop Collection Now</a>
+  </section>
+
+  <h2 class="section-title" id="categories">Shop by Category</h2>
+  <div class="grid-container">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd15?auto=format&fit=crop&w=600&q=80" alt="Bridal Wear">
+      <h3>Bridal Wear</h3>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=600&q=80" alt="Everyday Bras">
+      <h3>Everyday Bras</h3>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Sleepwear">
+      <h3>Sleepwear</h3>
+    </div>
+  </div>
+
+  <h2 class="section-title" id="collection">Our Collection</h2>
+  <div class="grid-container">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd15?auto=format&fit=crop&w=600&q=80" alt="Crimson Rose Bridal Lace Set">
+      <h3>Crimson Rose Bridal Lace Set</h3>
+      <div class="price">PKR 4,500</div>
+      <div class="product-options">
+        <label>Size: 
+          <select id="size-p1">
+            <option value="S">S</option>
+            <option value="M" selected>M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+        </label>
+        <label>Color: 
+          <select id="color-p1">
+            <option value="Skin/Nude" selected>Skin/Nude</option>
+            <option value="Red">Red</option>
+            <option value="Black">Black</option>
+            <option value="Maroon">Maroon</option>
+          </select>
+        </label>
+      </div>
+      <button class="add-cart-btn" onclick="addToCart('Crimson Rose Bridal Lace Set', 4500, 'size-p1', 'color-p1')">Add to Cart 🛒</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Silk Satin Honeymoon Nightgown">
+      <h3>Silk Satin Honeymoon Nightgown</h3>
+      <div class="price">PKR 5,200</div>
+      <div class="product-options">
+        <label>Size: 
+          <select id="size-p2">
+            <option value="S">S</option>
+            <option value="M" selected>M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+        </label>
+        <label>Color: 
+          <select id="color-p2">
+            <option value="Skin/Nude" selected>Skin/Nude</option>
+            <option value="Red">Red</option>
+            <option value="Black">Black</option>
+            <option value="Maroon">Maroon</option>
+          </select>
+        </label>
+      </div>
+      <button class="add-cart-btn" onclick="addToCart('Silk Satin Honeymoon Nightgown', 5200, 'size-p2', 'color-p2')">Add to Cart 🛒</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=600&q=80" alt="Second Skin Seamless T-Shirt Bra">
+      <h3>Second Skin Seamless T-Shirt Bra</h3>
+      <div class="price">PKR 2,200</div>
+      <div class="product-options">
+        <label>Size: 
+          <select id="size-p3">
+            <option value="32B">32B</option>
+            <option value="34B" selected>34B</option>
+            <option value="36B">36B</option>
+            <option value="38C">38C</option>
+          </select>
+        </label>
+        <label>Color: 
+          <select id="color-p3">
+            <option value="Nude" selected>Nude</option>
+            <option value="Black">Black</option>
+            <option value="White">White</option>
+          </select>
+        </label>
+      </div>
+      <button class="add-cart-btn" onclick="addToCart('Second Skin Seamless T-Shirt Bra', 2200, 'size-p3', 'color-p3')">Add to Cart 🛒</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80" alt="Ultra Soft Breathable Cotton Pack">
+      <h3>Ultra Soft Breathable Cotton Pack</h3>
+      <div class="price">PKR 1,800</div>
+      <div class="product-options">
+        <label>Size: 
+          <select id="size-p4">
+            <option value="M" selected>M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+        </label>
+        <label>Color: 
+          <select id="color-p4">
+            <option value="Assorted Pack" selected>Assorted Pack</option>
+            <option value="Pastels">Pastels</option>
+            <option value="Darks">Darks</option>
+          </select>
+        </label>
+      </div>
+      <button class="add-cart-btn" onclick="addToCart('Ultra Soft Breathable Cotton Pack', 1800, 'size-p4', 'color-p4')">Add to Cart 🛒</button>
+    </div>
+  </div>
+
+  <h2 class="section-title" id="videos">✨ The Elegance Edit: Style in Motion</h2>
+  <div class="video-slider">
+    <div class="video-card">
+      <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-modeling-in-a-studio-41731-large.mp4" type="video/mp4">
+      </video>
+      <div class="video-caption">✨ Silk Satin Nightwear</div>
+    </div>
+    <div class="video-card">
+      <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=400&q=80">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-fashion-model-posing-in-neon-light-39877-large.mp4" type="video/mp4">
+      </video>
+      <div class="video-caption">🌸 Seamless Comfort Fit</div>
+    </div>
+    <div class="video-card">
+      <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1521335629791-ce4aec67dd15?auto=format&fit=crop&w=400&q=80">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-girl-in-white-dress-posing-41734-large.mp4" type="video/mp4">
+      </video>
+      <div class="video-caption">👰 Bridal Lace Series</div>
+    </div>
+  </div>
+
+  <div class="calc-box" id="size-guide">
+    <h3>Find Your Perfect Fit 📏</h3>
+    <div class="calc-inputs">
+      <div class="calc-input-group">
+        <div class="calc-icon" title="Underbust Measurement">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#a33b5c" stroke-width="2">
+            <path d="M6 4c0 4 2 6 2 10s-2 6-2 6M18 4c0 4-2 6-2 10s2 6 2 6"/>
+            <line x1="7" y1="14" x2="17" y2="14" stroke="#2c1a21" stroke-width="2.5" stroke-dasharray="2 1"/>
+          </svg>
+        </div>
+        <input type="number" id="underbust" placeholder="Underbust Size in Inches (e.g., 34)" />
+      </div>
+
+      <div class="calc-input-group">
+        <div class="calc-icon" title="Bust Measurement">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#a33b5c" stroke-width="2">
+            <path d="M6 4c0 4 3 6 3 9s-1 7-1 7M18 4c0 4-3 6-3 9s1 7 1 7"/>
+            <line x1="5" y1="10" x2="19" y2="10" stroke="#2c1a21" stroke-width="2.5" stroke-dasharray="2 1"/>
+          </svg>
+        </div>
+        <input type="number" id="bust" placeholder="Bust Size in Inches (e.g., 38)" />
+      </div>
+
+      <button class="add-cart-btn" onclick="calculateSize()">Calculate Size</button>
+    </div>
+
+    <div class="calc-result" id="size-result"></div>
+
+    <div class="multi-lang-box">
+      <p><strong>English:</strong> Enter your Underbust and Bust measurements in inches to find your exact bra size.</p>
+      <p><strong>Roman Urdu:</strong> Apna sahi bra size maloom karne ke liye Underbust aur Bust ki paimaish (inches mein) darj karein.</p>
+      <p dir="rtl"><strong>اردو:</strong> اپنا درست برا سائز معلوم کرنے کے لیے انڈربسٹ اور بسٹ کی پیمائش (انچز میں) اوپر درج کریں۔</p>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Her Second Skin PK</h4>
+        <p><em>"Comfort, Confidence & Elegance."</em></p>
+        <p style="margin-top:8px;">Premium lingerie & sleepwear delivered in discreet, high-quality zipper bags across Pakistan.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Our Policies</h4>
+        <ul>
+          <li>📦 <strong>Packaging:</strong> 100% Discreet Zipper Bag Packaging</li>
+          <li>🔄 <strong>Exchange Policy:</strong> Exchange Only (Item-to-item exchange)</li>
+          <li>🚀 <strong>Official Launch:</strong> 15 November 2026</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul>
+          <li>📱 WhatsApp: <a href="https://wa.me/923397055500">0339-7055500</a></li>
+          <li>📸 Instagram/Social: <a href="#">@hersecondskinpk</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Her Second Skin PK. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    const WHATSAPP_PHONE_NUMBER_ID = "1440422142478472";
+    const WHATSAPP_ACCESS_TOKEN = "EAAWniZBXZA3CcBS4O5bVrDaJ4xelh7ZAFoEikyMT8gc9X3Cq5XU9jEj4ZCjtwVWDeqoYaxgUzLWZAZCpT6ZCIyifvsbi0BniEChvzpMow0vlOAGtv247gdEZB6MGodvr5d4VaeEDgyiG6g9pGso4LAQKxdMZCzrKUfIe9IwqxO0byirnXvMMj0yohsl4d3OkKHihldwZDZD";
+    const ADMIN_WHATSAPP_NUMBER = "923397055500";
+
+    let cart = [];
+    let chatOrderState = { active: false, step: 0, name: '', phone: '', address: '', item: '' };
+    let mediaRecorder;
+    let audioChunks = [];
+    let isRecording = false;
+
+    function loadCustomLogo(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('brand-logo-img').src = e.target.result;
+        const chatLogo = document.querySelector('.chat-header-logo');
+        if(chatLogo) chatLogo.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function toggleMenu() {
+      document.getElementById('side-menu').classList.toggle('active');
+      updateOverlay();
+    }
+
+    function toggleCart() {
+      document.getElementById('cart-drawer').classList.toggle('active');
+      updateOverlay();
+    }
+
+    function closeAllDrawers() {
+      document.getElementById('side-menu').classList.remove('active');
+      document.getElementById('cart-drawer').classList.remove('active');
+      updateOverlay();
+    }
+
+    function updateOverlay() {
+      const menuOpen = document.getElementById('side-menu').classList.contains('active');
+      const cartOpen = document.getElementById('cart-drawer').classList.contains('active');
+      document.getElementById('overlay').classList.toggle('active', menuOpen || cartOpen);
+    }
+
+    function toggleChatPopup() {
+      document.getElementById('chat-popup').classList.toggle('active');
+    }
+
+    function handleChatKeyPress(event) {
+      if (event.key === 'Enter') {
+        sendChatMessage();
+      }
+    }
+
+    async function toggleVoiceRecording() {
+      const micBtn = document.getElementById('mic-btn');
+      if (!isRecording) {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          mediaRecorder = new MediaRecorder(stream);
+          audioChunks = [];
+          mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+          mediaRecorder.onstop = async () => {
+            const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
+            const audioUrl = URL.createObjectURL(audioBlob);
+            appendPlayableVoiceBubble(audioUrl);
+            transcribeVoiceNote();
+          };
+          mediaRecorder.start();
+          isRecording = true;
+          micBtn.classList.add('recording');
+        } catch (err) {
+          alert("Microphone permission required.");
+        }
+      } else {
+        mediaRecorder.stop();
+        isRecording = false;
+        micBtn.classList.remove('recording');
+      }
+    }
+
+    function appendPlayableVoiceBubble(audioUrl) {
+      const chatBody = document.getElementById('chat-body');
+      chatBody.innerHTML += `
+        <div class="whatsapp-voice-bubble">
+          <button class="voice-play-btn" onclick="playAudio('${audioUrl}')">▶</button>
+          <div class="voice-info">
+            <div class="voice-text">🎤 Voice Message (0:03)</div>
+            <div style="font-size:10px; color:#555;">Tap play to listen</div>
+          </div>
+        </div>
+      `;
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function playAudio(url) {
+      const audio = new Audio(url);
+      audio.play();
+    }
+
+    function transcribeVoiceNote() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        processBotResponse("order");
+        return;
+      }
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'ur-PK';
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        processBotResponse(transcript);
+      };
+      recognition.onerror = function() {
+        processBotResponse("order");
+      };
+      recognition.start();
+    }
+
+    function sendChatMessage() {
+      const inputEl = document.getElementById('chat-input');
+      const text = inputEl.value.trim();
+      if (!text) return;
+
+      const chatBody = document.getElementById('chat-body');
+      chatBody.innerHTML += `<div class="chat-msg user">${escapeHtml(text)}</div>`;
+      inputEl.value = '';
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      processBotResponse(text);
+    }
+
+    // Updated Chat Function connecting to Vercel Backend Function (/api/chat)
+    async function processBotResponse(text) {
+      const chatBody = document.getElementById('chat-body');
+      const lower = text.toLowerCase();
+
+      if (chatOrderState.active) {
+        setTimeout(() => handleOrderFlow(text), 500);
+        return;
+      }
+      if (lower.includes('order') || lower.includes('buy') || lower.includes('kharidna') || lower.includes('book')) {
+        chatOrderState.active = true;
+        chatOrderState.step = 1;
+        chatOrderState.item = text;
+        const reply = "Zaroor! Aap kis cheez ka order dena chahte hain ya apna **Poora Naam** batayein taaki order book kar sakein.";
+        appendBotReply(reply);
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt: text })
+        });
+
+        const data = await response.json();
+        
+        if (data.error) {
+          appendBotReply("Server Error: " + data.error);
+          return;
+        }
+
+        const reply = data.reply || "Maazrat, koi jawab mosool nahi hua.";
+        appendBotReply(reply);
+      } catch (err) {
+        appendBotReply("Network/Fetch Error: " + err.message);
+      }
+    }
+
+    function handleOrderFlow(text) {
+      let reply = "";
+      if (chatOrderState.step === 1) {
+        chatOrderState.name = text;
+        chatOrderState.step = 2;
+        reply = "Shukriya! Ab apna **Phone Number** batayein (misal ke tor par 03001234567).";
+      } else if (chatOrderState.step === 2) {
+        chatOrderState.phone = text;
+        chatOrderState.step = 3;
+        reply = "Behtareen! Ab apna mukammal **Address aur City** likh dein.";
+      } else if (chatOrderState.step === 3) {
+        chatOrderState.address = text;
+        reply = `🎉 Aapka order confirm ho raha hai...\n\n👤 Naam: ${chatOrderState.name}\n📞 Phone: ${chatOrderState.phone}\n📍 Address: ${chatOrderState.address}\n\nAbhi aapka order seedha WhatsApp par bheja ja raha hai!`;
+        sendOrderDirectlyToWhatsApp(chatOrderState.name, chatOrderState.phone, chatOrderState.address, chatOrderState.item);
+        chatOrderState = { active: false, step: 0, name: '', phone: '', address: '', item: '' };
+      }
+      appendBotReply(reply);
+    }
+
+    function appendBotReply(reply) {
+      const chatBody = document.getElementById('chat-body');
+      chatBody.innerHTML += `<div class="chat-msg bot">${escapeHtml(reply)}</div>`;
+      chatBody.scrollTop = chatBody.scrollHeight;
+      speakNaturalVoice(reply);
+    }
+
+    function speakNaturalVoice(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'ur-PK';
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    async function sendOrderDirectlyToWhatsApp(name, phone, address, item) {
+      const orderText = `🛍️ *Chatbot Voice Order - Her Second Skin PK*\n\n*Customer Details:*\n👤 Name: ${name}\n📞 Phone: ${phone}\n📍 Address: ${address}\n\n*Ordered Item/Note:* ${item}`;
+      try {
+        await fetch(`https://graph.facebook.com/v25.0/${WHATSAPP_PHONE_NUMBER_ID}/messages`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${WHATSAPP_ACCESS_TOKEN}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            messaging_product: "whatsapp",
+            to: ADMIN_WHATSAPP_NUMBER,
+            type: "text",
+            text: { body: orderText }
+          })
+        });
+        alert("🎉 Mubarak ho! Aapka order seedha WhatsApp par bhej diya gaya hai.");
+      } catch (err) {
+        console.error("WhatsApp API Error:", err);
+      }
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function addToCart(name, price, sizeId, colorId) {
+      const size = document.getElementById(sizeId).value;
+      const color = document.getElementById(colorId).value;
+      const existing = cart.find(item => item.name === name && item.size === size && item.color === color);
+      if (existing) { existing.qty += 1; } else { cart.push({ name, price, size, color, qty: 1 }); }
+      renderCart();
+      toggleCart();
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) cart.splice(index, 1);
+      renderCart();
+    }
+
+    function updateCartItemOption(index, field, value) {
+      cart[index][field] = value;
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartItemsEl = document.getElementById('cart-items');
+      const cartCountEl = document.getElementById('cart-count');
+      const cartTotalEl = document.getElementById('cart-total');
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      cartCountEl.textContent = totalCount;
+      cartTotalEl.textContent = 'PKR ' + totalPrice.toLocaleString();
+      if (cart.length === 0) {
+        cartItemsEl.innerHTML = '<p style="color:#777; text-align:center; margin:20px 0;">Your cart drawer is empty.</p>';
+        return;
+      }
+      cartItemsEl.innerHTML = cart.map((item, idx) => `
+        <div class="cart-item">
+          <div class="cart-item-header">
+            <div class="cart-item-info">
+              <h4>${item.name}</h4>
+              <span>PKR ${(item.price * item.qty).toLocaleString()}</span>
+            </div>
+            <button class="remove-item" onclick="removeFromCart(${idx})">Remove</button>
+          </div>
+          <div class="cart-item-options">
+            <select onchange="updateCartItemOption(${idx}, 'size', this.value)">
+              <option value="S" ${item.size === 'S' ? 'selected' : ''}>S</option>
+              <option value="M" ${item.size === 'M' ? 'selected' : ''}>M</option>
+              <option value="L" ${item.size === 'L' ? 'selected' : ''}>L</option>
+              <option value="XL" ${item.size === 'XL' ? 'selected' : ''}>XL</option>
+            </select>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function checkoutCart() {
+      if (cart.length === 0) { alert("Your cart is empty!"); return; }
+      const name = document.getElementById('cust-name').value.trim();
+      const phone = document.getElementById('cust-phone').value.trim();
+      const address = document.getElementById('cust-address').value.trim();
+      if (!name || !phone || !address) { alert("Please fill in Delivery Information!"); return; }
+      let orderText = `🛍️ *New Order - Her Second Skin PK*\n👤 Name: ${name}\n📞 Phone: ${phone}\n📍 Address: ${address}\n`;
+      cart.forEach(item => orderText += `- ${item.name} (${item.size}) x ${item.qty}\n`);
+      try {
+        await fetch(`https://graph.facebook.com/v25.0/${WHATSAPP_PHONE_NUMBER_ID}/messages`, {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${WHATSAPP_ACCESS_TOKEN}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messaging_product: "whatsapp", to: ADMIN_WHATSAPP_NUMBER, type: "text", text: { body: orderText } })
+        });
+        alert("🎉 Order placed successfully!");
+        cart = [];
+        renderCart();
+        closeAllDrawers();
+      } catch (err) {
+        alert("Network error occurred.");
+      }
+    }
+
+    function calculateSize() {
+      const under = parseFloat(document.getElementById('underbust').value);
+      const bust = parseFloat(document.getElementById('bust').value);
+      const resEl = document.getElementById('size-result');
+      if (!under || !bust || bust < under) { resEl.textContent = "Please enter valid measurements."; return; }
+      const band = Math.round(under % 2 === 0 ? under + 4 : under + 5);
+      const diff = Math.round(bust - band);
+      const cups = ["AA", "A", "B", "C", "D", "DD", "E"];
+      const cup = cups[Math.max(0, Math.min(diff, cups.length - 1))];
+      resEl.textContent = `Your Recommended Size: ${band}${cup}`;
+    }
+  </script>
+</body>
+</html>
