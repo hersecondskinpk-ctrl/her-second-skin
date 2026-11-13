@@ -1,0 +1,1 @@
+Reels update: Desktop displays four visible video thumbnails with horizontally scrollable arrows when more are available; mobile uses two visible thumbnails. Homepage cards have no playback controls. Clicking a card opens /reel.html?id=... with a dedicated playable video page. Original reels management in Admin remains unchanged. Uploaded video files must remain in uploads/.

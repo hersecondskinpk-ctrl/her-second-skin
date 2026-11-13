@@ -1,0 +1,1 @@
+v9 fixes (2026-10-27): fit assistant icon added to server static allowlist; reel cards autoplay muted, loop, no play overlay or controls; reel page autoplays muted without controls; uploaded hero banners no longer use tinted pink CSS gradient. Autoplay sound cannot be guaranteed by browser policy; videos begin muted.

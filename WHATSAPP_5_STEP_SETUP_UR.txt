@@ -1,0 +1,56 @@
+HER SECOND SKIN PK v9 — WHATSAPP 5-STAGE INTEGRATION CANDIDATE
+================================================================
+STATUS: Code prepared and server smoke-tested. NOT a live-tested/fully configured WhatsApp production release.
+Do not deploy until the following Meta/Render prerequisites have been verified.
+
+STEPS
+1. Website order: template messages to customer and shopkeeper; shopkeeper media-header template includes actual product image if a public HTTPS image URL exists.
+2. 60 minutes after order: durable SQLite reminder queue, approved quick-reply template with Confirm/Cancel buttons.
+3. Customer confirm: WhatsApp interactive phone/address verification. Update Details opens a Meta WhatsApp Flow (must be created/published); Form should return order_id, phone, address. Review and final confirmation follow.
+4. On verified details: admin workflow stage Ready to Pack; shopkeeper alert with media header template.
+5. Admin order details: courier name, tracking ID, tracking HTTPS link, dispatch date, manual Send Dispatch Notification; customer dispatch template queued.
+
+IMPORTANT INTEGRATION LIMITATIONS
+- Templates are NOT created or approved by this code; their exact text must be set in Meta Business Manager. Each must contain COMPLETE ENGLISH FIRST, COMPLETE URDU SECOND (no mixed paragraphs), as approved in chat.
+- Default template names are examples. Templates must be created in the production WhatsApp Business Account using matching parameter counts, language code and quick-reply buttons. Set names in Render.
+- Shopkeeper photo needs an approved IMAGE HEADER in both admin templates, and public HTTPS image for the ordered product. If a product has no public image, the media-header template may fail; upload a product image first.
+- WhatsApp Flow must be published with screen ID DETAILS and fields order_id, phone, address; Flow return nfm_reply response_json with those keys and order_id.
+- Flow setup can require Meta Flow encryption/data-channel setup if using dynamic backend data; use correct Meta setup. The example code sends flow prefill via navigate payload; Meta-side Flow must be compatible.
+- Opt-in must be collected on checkout before initiating WhatsApp messaging. This integration does not yet add that consent UI. Obtain Meta approval and implement this before enabling.
+- Meta API templates/limits and user 24h messaging windows apply; manual dispatch cannot guarantee delivery. Inspect message status.
+- Production phone number ID must be verified in WhatsApp Manager; do not confuse test sender ID with production.
+- Admin recipient should be separate from the registered sending number. Sending to the sender number itself may not work.
+- Existing database reserves stock immediately on order creation, not after customer confirmation; changing this rule safely needs a separate stock migration.
+- Meta webhook endpoints must be configured at https://YOUR_DOMAIN/api/whatsapp/webhook and subscriptions enabled for messages.
+- Render SQLite data/ AND uploads/ MUST use persistent storage (Render disk or external store). Redeploy/restart otherwise may lose orders, queues and photos.
+- Outbox messages are retried and logged but need end-to-end testing. Delivery/read receipts are NOT implemented.
+- No guaranteed language translation of actual product/customer data; exact original stored values are inserted in both templates.
+- Source does not contain API credentials. Keep all tokens and app secrets in Render environment.
+
+RENDER ENV VARS
+WHATSAPP_ACCESS_TOKEN=...          existing, secret
+WHATSAPP_PHONE_NUMBER_ID=...       production Phone Number ID (verify)
+WHATSAPP_ADMIN_NUMBER=...          shopkeeper recipient (different from sender)
+META_APP_SECRET=...                required for webhook signature verification
+META_WEBHOOK_VERIFY_TOKEN=...      your own secret verification phrase
+PUBLIC_BASE_URL=https://...       public website root (needed for product images)
+WHATSAPP_FLOW_ID=...              published WhatsApp Flow ID
+WHATSAPP_TEMPLATE_LANGUAGE=en_US (or approved locale)
+WA_TEMPLATE_ORDER_CUSTOMER=hss_order_received
+WA_TEMPLATE_ORDER_ADMIN=hss_order_alert
+WA_TEMPLATE_CONFIRMATION=hss_order_confirmation
+WA_TEMPLATE_DISPATCH=hss_order_dispatched
+WHATSAPP_GRAPH_VERSION=v23.0 (review Meta supported version)
+WHATSAPP_AUTOMATION_ENABLED=1      DO NOT ENABLE until all steps validated
+
+TEMPLATE BODY PARAMETER ORDER (Meta numbers are 1-based)
+CUSTOMER STEP1: customer_name, order_id, items_text, delivery_charges, total_amount (5)
+ADMIN STEP1 and STEP4: order_id, items_text, customer_name, phone, address, total_amount (6); IMAGE HEADER
+STEP2: customer_name, order_id, items_text, delivery_charges, total_amount (5), quick reply buttons 0 Confirm Order, 1 Cancel Order
+STEP5: customer_name, order_id, courier, tracking_id, dispatch_date, tracking_link (6)
+
+WHEN CONFIGURED
+- Visit Admin > Orders > View. WhatsApp timeline and courier dispatch form are there.
+- Use real test numbers and approved templates and test ALL FIVE stages.
+- The basic health check only tests the server, not Meta WhatsApp sending.
+- This package is not proof that Meta webhook, templates, flows or WhatsApp delivery work on live service.

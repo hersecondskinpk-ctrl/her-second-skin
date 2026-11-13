@@ -1,0 +1,264 @@
+/* ============================================================
+   Her Second Skin PK — Product Detail Page Styles (css/product.css)
+   Gallery, Variant Pickers, Trust Badges & Sticky Action Bar
+   ============================================================ */
+
+.pdp-wrap {
+  max-width: 1250px;
+  margin: 20px auto 40px;
+  padding: 0 4%;
+}
+.crumbs {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.crumbs a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.pdp-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 36px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 8px 30px rgba(93, 38, 48, 0.05);
+}
+
+/* Gallery Section */
+.pdp-gallery {
+  position: sticky;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.pdp-main-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fdf5f7;
+  border: 1px solid var(--rose-border);
+}
+.pdp-main-box img, .pdp-main-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pdp-thumbs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  padding-bottom: 4px;
+}
+.pdp-thumb {
+  width: 68px;
+  height: 68px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  background: #fdf5f7;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+}
+.pdp-thumb.on {
+  border-color: var(--primary);
+}
+.pdp-thumb img, .pdp-thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Product Info Section */
+.pdp-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pdp-category-eyebrow {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 700;
+}
+.pdp-title {
+  font-size: clamp(24px, 3vw, 32px) !important;
+  line-height: 1.25;
+  color: var(--primary-dark);
+}
+.pdp-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.pdp-price {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary);
+}
+.pdp-compare-price {
+  font-size: 16px;
+  color: #999;
+  text-decoration: line-through;
+}
+.pdp-stock {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 99px;
+  width: fit-content;
+}
+.pdp-stock.ok {
+  background: #e6f7ec;
+  color: #17683d;
+}
+.pdp-stock.low {
+  background: #fff5e6;
+  color: #a0640a;
+}
+.pdp-stock.out {
+  background: #fde8e8;
+  color: #b01e1e;
+}
+
+/* Variant Selectors */
+.pdp-variants-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+}
+.pdp-option-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.pdp-pills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pdp-pill {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text-dark);
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.pdp-pill:hover, .pdp-pill.on {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+.pdp-pill.na {
+  opacity: 0.4;
+  text-decoration: line-through;
+}
+
+/* Action Buttons */
+.pdp-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+.pdp-btn-add {
+  background: var(--wine);
+  color: #fff;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.pdp-btn-add:hover {
+  background: var(--wine-dark);
+}
+.pdp-btn-whatsapp {
+  background: #25d366;
+  color: #fff;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* Trust Perks */
+.pdp-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  background: var(--rose-soft);
+  border: 1px solid var(--rose-border);
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 10px;
+  font-size: 11.5px;
+  text-align: center;
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+/* Sticky Mobile Action Bar */
+.pdp-mobile-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 1px solid var(--line);
+  padding: 10px 16px;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
+  z-index: 95;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media(max-width: 850px) {
+  .pdp-grid {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  .pdp-gallery {
+    position: static;
+  }
+  .pdp-mobile-bar {
+    display: flex;
+  }
+  .pdp-wrap {
+    padding-bottom: 70px;
+  }
+}

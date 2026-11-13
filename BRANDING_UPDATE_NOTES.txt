@@ -1,0 +1,6 @@
+Her Second Skin PK branded responsive admin update.
+Original image: brand-logo.jpg (copied without editing).
+Admin login and top bar now display the official logo.
+Mobile 39px, desktop 54px and login 92px with contain (no crop).
+Original homepage and backend files are unchanged.
+This does not implement persistent storage; deploy only after backing up Render data.

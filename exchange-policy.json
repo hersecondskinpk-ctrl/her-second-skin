@@ -1,0 +1,170 @@
+[
+  {
+    "number": 1,
+    "question_en": "How long do I have to request an exchange?",
+    "answer_en": "Submit your exchange request within 3 calendar days after receiving the order.",
+    "question_ur": "ایکسچینج کی درخواست کتنے وقت کے اندر دی جا سکتی ہے؟",
+    "answer_ur": "آرڈر وصول ہونے کے بعد 3 کیلنڈر دن کے اندر ایکسچینج کی درخواست جمع کروائیں۔"
+  },
+  {
+    "number": 2,
+    "question_en": "Which issues qualify for an exchange?",
+    "answer_en": "A wrong size, wrong colour, incorrect product, or damaged product qualifies, subject to verification. A change of mind or personal dislike does not.",
+    "question_ur": "کن وجوہات پر ایکسچینج ممکن ہے؟",
+    "answer_ur": "غلط سائز، غلط رنگ، غلط پروڈکٹ یا خراب پروڈکٹ کی صورت میں تصدیق کے بعد ایکسچینج ممکن ہے۔ صرف پسند نہ آنے پر نہیں۔"
+  },
+  {
+    "number": 3,
+    "question_en": "What are the hygiene and condition requirements?",
+    "answer_en": "Products must be unused, unworn and unwashed. Even a single try-on makes an item ineligible. Keep original tags, hygiene seals where supplied, and packaging intact. Visual inspection without wearing is permitted. Stains, fragrance or customer-caused damage disqualify an item.",
+    "question_ur": "پروڈکٹ کی حالت اور حفظانِ صحت کی کیا شرائط ہیں؟",
+    "answer_ur": "پروڈکٹ غیر استعمال شدہ، بغیر پہنی اور بغیر دھلی ہونی چاہیے۔ ایک مرتبہ پہن کر ٹرائی کرنے پر بھی ایکسچینج نہیں ہوگا۔ اصل ٹیگز، موجودہ ہائجین سیل اور پیکنگ محفوظ رکھیں۔ بغیر پہنے ظاہری معائنہ ممکن ہے۔ داغ، خوشبو یا صارف کی وجہ سے نقصان قابلِ قبول نہیں۔"
+  },
+  {
+    "number": 4,
+    "question_en": "Who pays exchange courier charges?",
+    "answer_en": "When we send an incorrect size, colour, product, or a damaged item, Her Second Skin PK pays both-way courier charges for an approved exchange.",
+    "question_ur": "ایکسچینج کے کورئیر چارجز کون ادا کرے گا؟",
+    "answer_ur": "کمپنی کی طرف سے غلط سائز، رنگ، پروڈکٹ یا خراب سامان بھیجنے کی صورت میں منظور شدہ ایکسچینج کے دونوں طرف کے کورئیر چارجز Her Second Skin PK ادا کرے گی۔"
+  },
+  {
+    "number": 5,
+    "question_en": "Can I choose another product, and how is the price difference handled?",
+    "answer_en": "We first offer the same product in the correct size or colour, or in undamaged condition, without an additional product charge. If unavailable, an approved alternative may be chosen: pay the difference for a higher-priced item, or receive the difference back for a lower-priced item.",
+    "question_ur": "کیا دوسری پروڈکٹ لی جا سکتی ہے اور قیمت کا فرق کیسے ہوگا؟",
+    "answer_ur": "پہلی ترجیح اسی پروڈکٹ کا درست سائز، رنگ یا صحیح حالت میں متبادل بغیر اضافی پروڈکٹ قیمت کے دینا ہے۔ وہ دستیاب نہ ہو تو منظور شدہ دوسری پروڈکٹ منتخب کی جا سکتی ہے؛ مہنگی ہونے پر فرق ادا کرنا ہوگا اور سستی ہونے پر فرق واپس ہوگا۔"
+  },
+  {
+    "number": 6,
+    "question_en": "What evidence is required?",
+    "answer_en": "Provide your order number and clear product photographs showing the issue. We may request an unboxing video or other evidence, but the absence of a video alone does not automatically reject a genuine claim.",
+    "question_ur": "ایکسچینج کے لیے کیا ثبوت درکار ہیں؟",
+    "answer_ur": "آرڈر نمبر اور مسئلے کی واضح تصاویر فراہم کریں۔ ضرورت پر ان باکسنگ ویڈیو یا مزید ثبوت مانگے جا سکتے ہیں، مگر صرف ویڈیو نہ ہونے سے حقیقی درخواست خودکار طور پر رد نہیں ہوگی۔"
+  },
+  {
+    "number": 7,
+    "question_en": "How do I submit an exchange request?",
+    "answer_en": "Use the Exchange Request Form on our website or contact us on WhatsApp. Provide the order number, issue and evidence. Requests are recorded in our Admin Panel.",
+    "question_ur": "ایکسچینج کی درخواست کیسے جمع ہوگی؟",
+    "answer_ur": "ویب سائٹ کے Exchange Request Form یا WhatsApp کے ذریعے آرڈر نمبر، مسئلے کی تفصیل اور ثبوت دیں۔ درخواست کا ریکارڈ Admin Panel میں محفوظ ہوگا۔"
+  },
+  {
+    "number": 8,
+    "question_en": "How will the return parcel be collected?",
+    "answer_en": "After initial approval we will arrange pickup where available, or give return-shipping instructions. The company pays both-way courier charges for approved company-error exchanges.",
+    "question_ur": "واپس کیا جانے والا پارسل کیسے لیا جائے گا؟",
+    "answer_ur": "ابتدائی منظوری کے بعد دستیابی کے مطابق کمپنی پک اَپ کرے گی یا واپسی کی ہدایات دے گی۔ کمپنی کی غلطی کے منظور شدہ ایکسچینج میں دونوں طرف کے چارجز کمپنی ادا کرے گی۔"
+  },
+  {
+    "number": 9,
+    "question_en": "When is a replacement sent after inspection?",
+    "answer_en": "After initial evidence review, the original item is collected and checked for condition and hygiene. Once verified, we dispatch the replacement. Exceptionally, earlier dispatch may be approved after adequate verification.",
+    "question_ur": "معائنے کے بعد متبادل کب روانہ ہوگا؟",
+    "answer_ur": "ابتدائی جانچ کے بعد اصل پروڈکٹ واپس لے کر حالت اور صفائی کی جانچ ہوگی۔ تصدیق کے بعد متبادل روانہ ہوگا۔ خصوصی صورتوں میں مناسب تصدیق پر پہلے بھی روانگی منظور ہو سکتی ہے۔"
+  },
+  {
+    "number": 10,
+    "question_en": "How long does the initial review take?",
+    "answer_en": "We provide an initial response within 48 hours of receiving the request. Final approval follows inspection and policy verification.",
+    "question_ur": "درخواست کا ابتدائی جائزہ کتنے وقت میں ہوگا؟",
+    "answer_ur": "درخواست ملنے کے 48 گھنٹوں کے اندر ابتدائی جواب دیا جائے گا۔ حتمی منظوری معائنے اور شرائط کی تصدیق کے بعد ہوگی۔"
+  },
+  {
+    "number": 11,
+    "question_en": "What if an item fails inspection?",
+    "answer_en": "We explain the rejection and share relevant evidence. For customer use, damage, or policy breaches, the customer may pay the courier cost to return the item. Company errors remain at our expense.",
+    "question_ur": "اگر پروڈکٹ معائنے میں ناکام ہو تو کیا ہوگا؟",
+    "answer_ur": "درخواست رد ہونے کی وجہ اور متعلقہ ثبوت بتائے جائیں گے۔ صارف کے استعمال، نقصان یا شرائط کی خلاف ورزی پر چیز واپس بھیجنے کا خرچ صارف پر ہو سکتا ہے۔ کمپنی کی غلطی کا خرچ کمپنی دے گی۔"
+  },
+  {
+    "number": 12,
+    "question_en": "How is a price-difference refund paid?",
+    "answer_en": "If an approved alternative costs less, we refund the difference within 5 working days after final exchange approval through an available method such as JazzCash, Easypaisa or bank transfer. This is not a general return refund.",
+    "question_ur": "سستی متبادل پروڈکٹ کی رقم کا فرق کب واپس ہوگا؟",
+    "answer_ur": "منظور شدہ سستی متبادل پروڈکٹ کا فرق حتمی منظوری کے بعد 5 کاروباری دن میں JazzCash، Easypaisa یا Bank Transfer جیسے دستیاب طریقے سے واپس ہوگا۔ یہ عام ریٹرن ریفنڈ نہیں۔"
+  },
+  {
+    "number": 13,
+    "question_en": "When will the approved replacement be dispatched?",
+    "answer_en": "Normally within 2–3 working days after final approval. If stock is unavailable or an unexpected delay occurs, we will inform you and provide an updated estimated dispatch date.",
+    "question_ur": "متبادل پروڈکٹ کب روانہ ہوگی؟",
+    "answer_ur": "حتمی منظوری کے عموماً 2 سے 3 کاروباری دن میں۔ اسٹاک کی کمی یا تاخیر پر اطلاع اور نئی متوقع تاریخ دی جائے گی۔"
+  },
+  {
+    "number": 14,
+    "question_en": "Can discounted or sale items be exchanged?",
+    "answer_en": "Yes, for verified wrong size, wrong colour, incorrect product or damage, subject to all exchange conditions. Personal dislike does not qualify.",
+    "question_ur": "کیا سیل اور ڈسکاؤنٹ والی پروڈکٹس ایکسچینج ہوں گی؟",
+    "answer_ur": "جی ہاں، تصدیق شدہ غلط سائز، رنگ، پروڈکٹ یا نقصان اور دیگر شرائط پوری ہونے پر۔ صرف پسند نہ آنے پر نہیں۔"
+  },
+  {
+    "number": 15,
+    "question_en": "What if a suitable replacement is unavailable?",
+    "answer_en": "You may select another available product with a fair price adjustment. If no suitable option is acceptable, we refund the paid amount for the affected product. This is an exception for an approved exchange, not a change-of-mind return.",
+    "question_ur": "مناسب متبادل دستیاب نہ ہو تو کیا ہوگا؟",
+    "answer_ur": "دوسری دستیاب پروڈکٹ قیمت کے فرق کے ساتھ لی جا سکتی ہے۔ کوئی مناسب متبادل قابلِ قبول نہ ہو تو متاثرہ پروڈکٹ کی ادا شدہ رقم واپس ہوگی۔ یہ منظور شدہ ایکسچینج کا استثنا ہے، محض پسند بدلنے کا ریفنڈ نہیں۔"
+  },
+  {
+    "number": 16,
+    "question_en": "When is an approved full refund processed?",
+    "answer_en": "An approved full refund is processed within 5 working days, using an available method such as JazzCash, Easypaisa or bank transfer.",
+    "question_ur": "منظور شدہ مکمل ریفنڈ کب ملے گا؟",
+    "answer_ur": "منظور شدہ مکمل ریفنڈ 5 کاروباری دن میں دستیاب JazzCash، Easypaisa یا Bank Transfer کے ذریعے کیا جائے گا۔"
+  },
+  {
+    "number": 17,
+    "question_en": "What if I selected the wrong size or colour?",
+    "answer_en": "Customer selection mistakes may be considered as a special courtesy exchange at our discretion, depending on stock, product condition and hygiene; approval is not guaranteed. If approved, the customer pays both-way courier charges.",
+    "question_ur": "اگر سائز یا رنگ میں میری اپنی غلطی ہو تو؟",
+    "answer_ur": "صارف کی اپنی غلطی پر اسٹاک، حالت اور صفائی دیکھ کر خصوصی رعایتی ایکسچینج پر غور کیا جا سکتا ہے، منظوری یقینی نہیں۔ منظوری پر دونوں طرف کے کورئیر چارجز صارف ادا کرے گا۔"
+  },
+  {
+    "number": 18,
+    "question_en": "Can I return an item without prior approval?",
+    "answer_en": "Please obtain approval and follow our return instructions first. Unauthorised returns are assessed individually; acceptance is not guaranteed and unnecessary shipping costs may be your responsibility.",
+    "question_ur": "کیا پیشگی منظوری کے بغیر پارسل واپس بھیج سکتا ہوں؟",
+    "answer_ur": "پہلے منظوری حاصل کریں اور واپسی کی ہدایات پر عمل کریں۔ غیر منظور شدہ واپسی کا الگ جائزہ ہوگا؛ قبولیت یقینی نہیں اور غیر ضروری کورئیر خرچ صارف پر آ سکتا ہے۔"
+  },
+  {
+    "number": 19,
+    "question_en": "Can the same product be exchanged more than once?",
+    "answer_en": "Normally one exchange per product. If our replacement is itself the wrong size, colour, product or arrives damaged due to our error, a further verified exchange is allowed and we cover both-way courier charges.",
+    "question_ur": "کیا ایک پروڈکٹ بار بار ایکسچینج ہو سکتی ہے؟",
+    "answer_ur": "عام طور پر ایک مرتبہ۔ اگر ہماری غلطی سے متبادل بھی غلط سائز، رنگ، دوسری پروڈکٹ یا خراب ہو تو تصدیق کے بعد دوبارہ ایکسچینج ہوگا اور دونوں طرف کے چارجز کمپنی ادا کرے گی۔"
+  },
+  {
+    "number": 20,
+    "question_en": "Can I cancel or change an exchange request?",
+    "answer_en": "You may cancel or change it before courier pickup. Afterwards we review each case. Documented costs already incurred due to a customer-requested change may be charged to the customer; costs caused by our mistake are ours.",
+    "question_ur": "کیا ایکسچینج درخواست منسوخ یا تبدیل کر سکتا ہوں؟",
+    "answer_ur": "کورئیر پک اَپ سے پہلے منسوخی یا تبدیلی ممکن ہے۔ اس کے بعد الگ جائزہ ہوگا۔ صارف کی درخواست سے پہلے ہو چکے حقیقی اخراجات صارف پر آ سکتے ہیں؛ کمپنی کی غلطی کے اخراجات کمپنی پر ہوں گے۔"
+  },
+  {
+    "number": 21,
+    "question_en": "How do I track my exchange?",
+    "answer_en": "Check your exchange status on our website with your order number and registered phone. Important updates may also be sent on WhatsApp when approved messaging is available. Courier tracking links are shared when provided.",
+    "question_ur": "ایکسچینج کی Tracking کیسے ہوگی؟",
+    "answer_ur": "ویب سائٹ پر آرڈر نمبر اور رجسٹرڈ فون سے درخواست کی صورتحال دیکھیں۔ منظور شدہ WhatsApp Messaging دستیاب ہونے پر اہم اطلاعات بھیجی جا سکتی ہیں۔ دستیاب کورئیر ٹریکنگ لنک دیا جائے گا۔"
+  },
+  {
+    "number": 22,
+    "question_en": "How is customer identity verified?",
+    "answer_en": "We check the order number and registered phone. Sensitive account or refund details may require an additional OTP or equivalent secure verification.",
+    "question_ur": "صارف کی شناخت کیسے ہوگی؟",
+    "answer_ur": "آرڈر نمبر اور رجسٹرڈ فون چیک کیا جائے گا۔ حساس معلومات یا ریفنڈ تفصیلات کے لیے اضافی OTP یا مساوی محفوظ تصدیق درکار ہو سکتی ہے۔"
+  },
+  {
+    "number": 23,
+    "question_en": "What if the return parcel is lost or damaged in transit?",
+    "answer_en": "For an approved, authorised courier return we work with the courier to investigate and resolve loss or damage. You may need the receipt or tracking evidence. Returns sent against instructions are reviewed individually.",
+    "question_ur": "اگر واپسی کا پارسل راستے میں گم یا خراب ہو جائے؟",
+    "answer_ur": "منظور شدہ کورئیر کے ذریعے واپسی پر نقصان یا گمشدگی کی تحقیق اور حل میں کمپنی کورئیر کے ساتھ کام کرے گی۔ رسید یا ٹریکنگ ثبوت درکار ہو سکتا ہے۔ ہدایات کے خلاف واپسی کا الگ جائزہ ہوگا۔"
+  },
+  {
+    "number": 24,
+    "question_en": "What if I disagree with an exchange or refund decision?",
+    "answer_en": "File a complaint via the website or WhatsApp. Management reviews evidence, order history and policy and provides a written response within 3 working days. Confirmed company errors will be corrected. Your legal rights remain unaffected.",
+    "question_ur": "اگر میں ایکسچینج یا ریفنڈ کے فیصلے سے اختلاف کروں؟",
+    "answer_ur": "ویب سائٹ یا WhatsApp سے شکایت دیں۔ انتظامیہ ثبوت، آرڈر ریکارڈ اور پالیسی کی بنیاد پر 3 کاروباری دن میں تحریری جواب دے گی۔ کمپنی کی ثابت شدہ غلطی درست کی جائے گی۔ قانونی حقوق محفوظ رہیں گے۔"
+  }
+]

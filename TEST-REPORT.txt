@@ -1,0 +1,116 @@
+Her Second Skin PK Inventory Order System — Upgrade Test Report
+Date: 2026-10-25
+
+PASSED — STATIC / STARTUP
+- `node --check server.js` — passed.
+- `node --check inventory-store.js` — passed.
+- Admin page inline JavaScript parse check — passed.
+- Server startup on Node.js v22.16.0 with an isolated temporary SQLite database — passed.
+- GET / returned HTTP 200.
+- GET /api/products returned HTTP 200 and a valid empty inventory response on an isolated database.
+- Startup created schema successfully, including the additive product_images table.
+- Existing category routes and admin routes remain in the server's public file allowlist.
+
+PASSED — ISOLATED HTTP INTEGRATION TESTS
+All tests below used a new temporary database and synthetic test records, not production data.
+- Admin login succeeded using a test-only environment password.
+- Created a test product with Black and Pink variants and separate gallery image URLs.
+- Product API returned both gallery images with their expected color labels and featured-image state.
+- Valid Pakistani mobile number and delivery address accepted for checkout.
+- Order creation returned HTTP 201 and calculated PKR 2,500 x 2 plus PKR 350 delivery = PKR 5,350.
+- Stock decreased from 2 to 0 after a successful order.
+- Attempt to purchase one additional unit when stock was zero was rejected with HTTP 409.
+- Admin cancellation returned HTTP 200 and restored stock from 0 to 2.
+- Invalid Pakistani mobile number was rejected with HTTP 400.
+- Test server and temporary database were stopped/removed after the run.
+
+NOT VERIFIED / LIMITATIONS
+- The supplied ZIP contained no SQLite database, product records, customer orders, product images, or brand logo asset; the uploads/ and data/ folders contained keep-files only. Production data preservation cannot be verified from this ZIP.
+- Tests used synthetic data and did not exercise a real populated production database.
+- - Real browser end-to-end checkout, cart interactions, image uploads from a browser, responsive/mobile rendering, WhatsApp handoff, and Windows batch startup were not tested in a browser/Windows environment.
+- Image upload validation and persistence were inspected in code but actual browser file-upload flows were not end-to-end tested.
+- Color gallery behavior is implemented at product color level via an optional admin color label. Dedicated galleries per individual color-size SKU are not modeled separately.
+- Product video upload, drag-and-drop gallery reordering, and image replacement for existing stored gallery items are not included.
+
+DATA SAFETY
+- The code applies CREATE TABLE IF NOT EXISTS for the new gallery table and does not drop/truncate existing product/order tables.
+- Do not assume existing live data has been preserved from this ZIP: the production database was not supplied. Back up the actual deployment's SQLite database and uploads folder before replacing files or starting the upgraded server.
+- Integration testing was performed only against an isolated temporary database.
+
+
+UPDATE 2026-10-25 — DUPLICATE ORDER PROTECTION (idempotency key)
+- Browser creates one random key per cart/details and re-uses it on retry; double-clicks are blocked while a request is in flight.
+- Server stores the key in orders.idempotency_key (additive column + unique index; existing data untouched) and returns the SAME order (HTTP 200, duplicate:true) instead of creating a new one or taking stock again.
+PASSED (isolated temp DB, synthetic data):
+- Old database created by the previous code upgraded in place; old order kept; old-style requests without a key still work.
+- Same key sent 3 times in a row: 1 order created (201), 2 replays (200), same order number, stock reduced once.
+- 12 identical requests fired simultaneously: exactly 1 order and 1 stock deduction.
+- Malformed key rejected with HTTP 400.
+NOT COVERED: a customer who deliberately edits the cart/details and presses Buy again is a new order by design; the manual admin WhatsApp-order route has no key.
+
+
+UPDATE 2026-10-25 — HOME PAGE REDESIGN v1 (index.html)
+- New header (sticky, centred category menu), full-width hero banner, 4-point trust bar, product/category cards, burgundy footer; mobile layout included.
+- Brand colours kept (#a33b5c / #4a1525 / #faf3f0). Only look changed: all element IDs and the whole script block are identical to the previous version.
+CHECKED in headless Chromium (desktop 1366px + mobile 390px): no JavaScript errors, no sideways scrolling, products from the database show in the new cards.
+NOT YET REDESIGNED: category pages (bras, panties, sets, accessories, body-shaper), admin panel. Banner photo is a placeholder stock image — replace with your own.
+
+
+UPDATE 2026-10-25 — CATEGORY PAGES REDESIGN v1 (bras, panties, sets, accessories, body-shaper)
+- Same look as the new home page: banner with collection name, breadcrumb, trust strip, 4-column product grid (2 columns on mobile), burgundy footer. Brand colours unchanged.
+- Product cards, stock display and 'Choose Options & Order' links still come from inventory-store.js exactly as before; scripts untouched.
+- Also fixed an old bug present in all 5 category pages: the logo-fallback code had broken quotes and threw a JavaScript error whenever logo.jpg was missing. Now shows the 'HSS' badge cleanly.
+CHECKED in headless Chromium, desktop + mobile: no JavaScript errors, no sideways scrolling, database products appear in the new cards.
+NOT YET REDESIGNED: admin panel. Banner photo is a placeholder stock image.
+
+
+UPDATE 2026-10-26 — ADMIN PANEL: PRODUCT PHOTOS + CATEGORY LINKS (v3)
+- Add/Edit Product: one big photo box (drag photos in, or click). Photos show instantly as thumbnails, up to 8, 3 MB each.
+- Drag thumbnails to reorder; first photo is the Featured (main) photo; 'Make Featured' button; remove with the x.
+- Each photo has its own colour dropdown (colours come from the variant rows, or 'Sab rang' = shared).
+- Settings tab: new 'Category Links' box with a Copy button for Home, Bras, Panties, Sets, Accessories, Body Shaper.
+- Admin panel look, login, orders, sales, stock logic and server.js are unchanged. Old products with photos open normally.
+CHECKED in headless Chromium with the real server: pick 3 photos at once, set colours, drag reorder, save, reopen (same order and colours), remove one, 8-photo limit message, no JavaScript errors, product appears on sets.html.
+Backup of the previous admin.html was kept during development.
+
+=== v4: Photos up to 20 + Product Videos (up to 3, MP4/MOV/WebM, 25 MB each) ===
+Admin: photo limit raised 8 -> 20. New video drop-zone with preview and remove button.
+Store: videos show as thumbnails next to photos in the product popup; tap to play.
+Tested end-to-end (Playwright, real server, temp DB): 14/14 passed, 0 JS errors.
+ - 12 photos + 2 videos saved, restored on Edit, shown in public popup
+ - 3 photos / no video / no media at all: saves normally
+ - 21st photo, 4th video, and 26 MB video are refused with a clear message
+
+=== v5: Collection pages rebuilt (mrlady-style structure, HSS branding) + sale prices ===
+Category pages (bras / panties / sets / accessories / body-shaper):
+ - Filter drawer: in-stock only, price range, size, colour (built from live stock) + removable filter chips
+ - Sort: Featured, A-Z, Z-A, price low-high, price high-low, date new-old, date old-new
+ - Product count, 24 per page with page numbers
+ - Cards: second photo on hover, wishlist heart (saved in the visitor's browser, wishlist drawer), -% badge + struck-through original price, Sold-out badge
+ - Floating WhatsApp button (desktop) and bottom bar Menu / Home / Wishlist / WhatsApp (mobile)
+ - 4-column footer: brand, shop, help, contact
+Admin: new optional field "Original price before discount". API refuses an original price that is not higher than the selling price.
+DB: additive migration (products.compare_price), safe on existing databases.
+Tested end-to-end (Playwright, real server, 30 products): 38/38 passed, 0 JS errors (desktop + mobile).
+
+=== v6: Product page (product.html) verified + fixed ===
+Found in the folder (not built in this chat session): product.html, cart saved in the browser (hssp_cart), moderated customer reviews
+(server table product_reviews + admin "Customer Reviews" tab), category/home cards linking to product.html. All of it was tested here before shipping.
+Product page: gallery with coloured-photo swatches + video thumbnails, zoom lightbox, struck price + SAVE pill, size/colour pickers,
+quantity (capped at stock), Add to cart, Buy it now (opens the cart with only that item ticked), WhatsApp order, size guide,
+Description / Delivery & Return / Ask a Question accordions, related + recently viewed, reviews.
+Reviews: land as PENDING, public only after approval in admin; "Verified" only when the phone matches a DELIVERED order for that product;
+phone never shown publicly; spam trap + rate limit (429). "N sold in last 14 days" is real order data and only shows at 3 or more.
+Fixes made in this session:
+ 1. Page now opens on the colour of the featured (first) photo (was alphabetical first colour -> showed a different photo).
+ 2. Phone layout: page was two columns on a 390px screen; now one column (big photo on top) like the sample.
+ 3. Phone: share links row pushed the page 28px sideways; now wraps.
+ 4. Phone: sticky Add-to-cart bar now follows scroll position (it was missed when jumping straight down, e.g. tapping "4 reviews").
+Tested end-to-end (Playwright, real server): product page 55/55, collection pages 38/38, 0 JS errors.
+
+=== v7/v8: Delivery + payment info on the product page ===
+ - "Delivery in 3-5 days" in the trust list and the Delivery & Return box; delivery charge PKR 350 (same as the cart and admin); free above PKR 10,000.
+ - Estimated delivery window computed from today (+3 to +5 days), e.g. "Fri, 30 Oct and Sun, 1 Nov".
+ - Payment icons under the buy buttons: COD, Raast, easypaisa, JazzCash (simple styled badges, not official logos; display only - no online-payment integration; the cart creates COD orders).
+ - Delivery fee kept at a flat PKR 350 for now (owner will adjust later). Billing logic unchanged.
+Tested: product page 58/58, collection pages 38/38, 0 JS errors.

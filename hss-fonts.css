@@ -1,0 +1,95 @@
+/* ============================================================
+   Her Second Skin PK — Brand Typography
+   Font Family: Gotham Condensed Book (Normal) & Gotham Condensed Bold (Headers)
+   ============================================================ */
+
+@font-face {
+  font-family: 'Gotham Condensed';
+  src: url('/fonts/GothamCondensed-Book.woff') format('woff'),
+       url('https://fonts.cdnfonts.com/s/14138/ufonts.com_gothamcondensed-book-opentype.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham Condensed';
+  src: url('/fonts/GothamCondensed-Book.woff') format('woff'),
+       url('https://fonts.cdnfonts.com/s/14138/ufonts.com_gothamcondensed-book-opentype.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham Condensed';
+  src: url('/fonts/GothamCondensed-Bold.woff') format('woff'),
+       url('https://fonts.cdnfonts.com/s/14138/ufonts.com_gothamcondensed-bold-opentype.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham Condensed';
+  src: url('/fonts/GothamCondensed-Bold.woff') format('woff'),
+       url('https://fonts.cdnfonts.com/s/14138/ufonts.com_gothamcondensed-bold-opentype.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham Condensed';
+  src: url('/fonts/GothamCondensed-Bold.woff') format('woff'),
+       url('https://fonts.cdnfonts.com/s/14138/ufonts.com_gothamcondensed-bold-opentype.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham Condensed Book';
+  src: url('/fonts/GothamCondensed-Book.woff') format('woff'),
+       url('https://fonts.cdnfonts.com/s/14138/ufonts.com_gothamcondensed-book-opentype.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-base: 'Gotham Condensed Book', 'Gotham Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: 'Gotham Condensed', 'Gotham Condensed Book', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Base Body / Content Typography (Normal) */
+*, *::before, *::after {
+  font-family: var(--font-base) !important;
+}
+
+html, body, p, span, li, a, label, button, input, select, textarea, td, th, div {
+  font-family: var(--font-base) !important;
+  font-weight: 400;
+}
+
+/* Headers & Titles (Bold) */
+h1, h2, h3, h4, h5, h6,
+.brand-title,
+.section-title,
+.hero h1,
+header h1,
+header strong,
+.card h3,
+.product h2,
+.details h2,
+.item-title,
+.menu-header strong,
+.hss-foot-brand,
+.brand,
+.brand-logo-text,
+strong,
+b {
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px;
+}

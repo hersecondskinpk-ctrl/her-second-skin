@@ -1,0 +1,1 @@
+Banner fix: custom uploaded homepage banners no longer tile/repeat. Image uses cover and center positioning, uploaded promotional art no longer has duplicate website headings overlaid. The whole banner links to #collection. Existing admin upload remains unchanged. Test desktop/mobile and ensure data/uploads persistence.

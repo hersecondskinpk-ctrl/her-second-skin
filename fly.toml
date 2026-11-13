@@ -1,0 +1,35 @@
+# fly.toml app configuration file generated for her-second-skin-pk on 2026-10-31T21:37:04+05:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'her-second-skin-pk'
+primary_region = 'sin'
+
+[build]
+[env]
+  HOST = '0.0.0.0'
+  HSS_DATABASE_PATH = '/data/her-second-skin.sqlite'
+  HSS_DATA_DIR = '/data'
+  HSS_UPLOAD_DIR = '/data/uploads'
+  NODE_ENV = 'production'
+  PORT = '8080'
+
+[[mounts]]
+  source = 'hss_data'
+  destination = '/data'
+  initial_size = '1gb'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'off'
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ['app']
+
+[[vm]]
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 512

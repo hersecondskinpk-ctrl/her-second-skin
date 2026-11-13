@@ -1,0 +1,53 @@
+1. accessories.html inline JS section 1 syntax
+2. admin.html inline JS section 1 syntax
+3. admin.html inline JS section 2 syntax
+4. body-shaper.html inline JS section 1 syntax
+5. bras.html inline JS section 1 syntax
+6. camisole.html inline JS section 1 syntax
+7. exchange.html inline JS section 1 syntax
+8. index.html inline JS section 1 syntax
+9. index.html inline JS section 2 syntax
+10. index.html inline JS section 3 syntax
+11. index.html inline JS section 4 syntax
+12. index.html inline JS section 5 syntax
+13. panties.html inline JS section 1 syntax
+14. product.html inline JS section 1 syntax
+15. product.html inline JS section 2 syntax
+16. reel.html inline JS section 1 syntax
+17. sets.html inline JS section 1 syntax
+18. desktop homepage renders
+19. desktop side-menu opens and fits screen
+20. desktop side-menu rounded corner
+21. desktop menu anchored RIGHT
+22. desktop side-menu closes
+23. desktop wishlist-drawer opens and fits screen
+24. desktop wishlist-drawer rounded corner
+25. desktop wishlist-drawer closes
+26. desktop cart-drawer opens and fits screen
+27. desktop cart-drawer rounded corner
+28. desktop cart-drawer closes
+29. desktop reel card generated
+30. desktop silent looping autoplay no controls
+31. desktop reel click enables normal player
+32. desktop reel closes with escape
+33. desktop no unhandled JS exceptions
+34. mobile homepage renders
+35. mobile side-menu opens and fits screen
+36. mobile side-menu rounded corner
+37. mobile menu anchored RIGHT
+38. mobile side-menu closes
+39. mobile wishlist-drawer opens and fits screen
+40. mobile wishlist-drawer rounded corner
+41. mobile wishlist-drawer closes
+42. mobile cart-drawer opens and fits screen
+43. mobile cart-drawer rounded corner
+44. mobile cart-drawer closes
+45. mobile reel card generated
+46. mobile silent looping autoplay no controls
+47. mobile reel click enables normal player
+48. mobile reel closes with escape
+49. mobile no unhandled JS exceptions
+50. Exchange request form visible
+51. Exchange status tracking form visible
+52. Exchange page no JS errors with mock data
+TOTAL_PASSED=52

@@ -1,0 +1,1 @@
+Admin > Category Photos lets you upload or reset homepage category photos. The server stores category image URLs in SQLite site_settings and files in uploads/. Render Free storage is not persistent.

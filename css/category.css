@@ -1,0 +1,158 @@
+/* ============================================================
+   Her Second Skin PK — Category Pages Styles (css/category.css)
+   Hero Header, Trust Strip, Product Grid & WhatsApp Quick Order
+   ============================================================ */
+
+.cat-hero {
+  padding: 42px 5% 36px;
+  background: linear-gradient(120deg, #f4e0e5, #fffaf9 70%);
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+.cat-hero .eyebrow {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.cat-hero h1 {
+  font-size: clamp(30px, 4.5vw, 48px) !important;
+  font-weight: 700 !important;
+  color: var(--primary-dark);
+  margin: 10px 0;
+}
+.cat-hero p {
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+.crumbs {
+  padding: 14px 5%;
+  font-size: 12.5px;
+  color: var(--muted);
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.crumbs a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.trust-strip {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 12px 5%;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  font-size: 12.5px;
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+/* Category Product Grid */
+main.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  padding: 36px 5% 48px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+main.grid .product {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(93, 38, 48, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+main.grid .product:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(93, 38, 48, 0.1);
+}
+main.grid .product img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  background: #fdf5f7;
+  display: block;
+}
+main.grid .product .details {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+main.grid .product h2 {
+  font-size: 16px !important;
+  color: var(--primary-dark);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+main.grid .product p {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+main.grid .product .price {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: auto;
+  margin-bottom: 12px;
+}
+main.grid .product .btn {
+  background: var(--wine);
+  color: #fff;
+  text-align: center;
+  padding: 11px 16px;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  display: block;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+main.grid .product .btn:hover {
+  background: var(--wine-dark);
+}
+
+.cat-note {
+  text-align: center;
+  margin: 0 auto 30px;
+  max-width: 800px;
+  padding: 0 20px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media(max-width: 900px) {
+  main.grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+@media(max-width: 600px) {
+  main.grid {
+    grid-template-columns: 1fr !important;
+    padding: 20px 14px 36px !important;
+  }
+  main.grid .product img {
+    height: clamp(240px, 70vw, 360px) !important;
+  }
+  main.grid .product .btn {
+    padding: 12px 18px !important;
+    font-size: 13.5px !important;
+  }
+}

@@ -1,0 +1,10 @@
+# flyctl launch added from .gitignore
+**/data/*.sqlite
+**/data/*.sqlite-shm
+**/data/*.sqlite-wal
+**/data/INITIAL-ADMIN-LOGIN.txt
+**/uploads/*
+!**/uploads/README-KEEP.txt
+**/backups
+**/scratch_test_data
+fly.toml

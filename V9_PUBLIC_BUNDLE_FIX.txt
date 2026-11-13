@@ -1,0 +1,1 @@
+Public homepage fix: Removed the Open Admin Panel link and internal inventory instructions from the Bundle & Combo Offers placeholder. Removed unverified demo bundle cards/pricing and the Combo Offers menu link. Inventory API and admin authentication are unchanged. Re-enable bundles only after inventory-backed, validated bundle orders are implemented.

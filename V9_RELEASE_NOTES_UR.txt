@@ -1,0 +1,24 @@
+Her Second Skin PK — v9 Preview Build (2026-10-27)
+
+Included in this ZIP:
+- URL/cookie crash handling and admin-cache protections.
+- Admin: numeric sizes 22,31,32,34,36,38,40,42,44,46,48,50,52,54,58 and S/M/L/XL/XXL/XXXL.
+- Admin: cup sizes A/B/C/D/FF (or None).
+- Bulk add for colour + multiple sizes + cups with separately editable SKU/quantity.
+- SQLite cup_size additive migration; existing data folder is NOT included.
+- Homepage management: tagline, second-screen banner upload, reels/deals upload and edit.
+- Tagline: Comfort, Confident, and Elegance.
+
+IMPORTANT: This is a PREVIEW, NOT FULLY COMPLETED/STABLE v9.
+The remaining approved feature scope is documented in V9_IMPLEMENTATION_SCOPE.md.
+Customer product page cup selection / full checkout flow, exchanges, homepage drag/drop,
+and thorough end-to-end regression have not yet been completed. Do not deploy
+for live sales until these are implemented and tested.
+
+Safeguards:
+- Back up your existing data/ and uploads/ before applying any code update.
+- Do not overwrite the existing production SQLite database with an empty database.
+- This ZIP does not include any existing customer/order records or login secrets.
+- On first launch, use the generated admin credentials shown by the application;
+  change password immediately and securely protect the credential file.
+- Node.js >=22.13.0 is required. Start using START-HER-SECOND-SKIN.bat or npm start.

@@ -1,0 +1,9 @@
+﻿Her Second Skin PK — Inventory & Order Management
+
+نئی مکمل انسٹالیشن اور استعمال کی ہدایات کے لیے README-UR.txt کھولیں۔
+
+اہم: صرف index.html ڈبل کلک کر کے نہ کھولیں۔ Windows پر START-HER-SECOND-SKIN.bat چلائیں، سرور ونڈو کھلی رہنے دیں، پھر http://127.0.0.1:8787 پر ویب سائٹ اور http://127.0.0.1:8787/admin پر Admin Panel استعمال کریں۔
+
+پہلی بار ایڈمن لاگ اِن data/INITIAL-ADMIN-LOGIN.txt میں ملے گا۔
+
+نیا v8 ورژن: مکمل گائیڈ (اپگریڈ، نئی خصوصیات، چیک کرنے کی فہرست) کے لیے GUIDE-v8-UR.txt کھولیں۔
